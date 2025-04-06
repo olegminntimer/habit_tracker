@@ -34,8 +34,7 @@ class Habit(models.Model):
         help_text="Укажите действие, которое представляет собой привычка",
     )
     is_pleasantly = models.BooleanField(
-        blank=True,
-        null=True,
+        default=False,
         verbose_name="Признак приятной привычки",
         help_text="Укажите признак приятной привычки",
     )
@@ -58,6 +57,12 @@ class Habit(models.Model):
         null=True,
         verbose_name="Вознаграждение",
         help_text="Укажите чем пользователь должен себя вознаградить после выполнения",
+    )
+    time_to_complete = models.PositiveSmallIntegerField(
+        blank=True,
+        null=True,
+        verbose_name="Время на выполнение",
+        help_text="Время, которое предположительно потратит пользователь на выполнение привычки.",
     )
     is_public = models.BooleanField(
         default=False,
