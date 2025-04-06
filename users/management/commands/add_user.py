@@ -12,9 +12,7 @@ class Command(BaseCommand):
             user.save()
             self.stdout.write(self.style.SUCCESS(f"Пользователь {user.email} создан!"))
         else:
-            self.stdout.write(
-                self.style.SUCCESS(f"Пользователь user@sky.com существует!")
-            )
+            self.stdout.write(self.style.SUCCESS(f"Пользователь user@sky.com существует!"))
 
         if not User.objects.filter(email="user2@sky.pro").exists():
             user = User.objects.create(email="user2@sky.pro")
@@ -23,6 +21,4 @@ class Command(BaseCommand):
             user.save()
             self.stdout.write(self.style.SUCCESS(f"Пользователь user2@sky.pro создан!"))
         else:
-            self.stdout.write(
-                self.style.SUCCESS(f"Пользователь {user.email} существует!")
-            )
+            self.stdout.write(self.style.SUCCESS(f"Пользователь {user.email} существует!"))

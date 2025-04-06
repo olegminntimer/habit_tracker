@@ -20,13 +20,13 @@ class Habit(models.Model):
         verbose_name="Место для выполнения привычки",
         help_text="Укажите место для выполнения привычки",
     )
-    habit_time = models.DateTimeField(
+    time = models.DateTimeField(
         blank=True,
         null=True,
         verbose_name="Время",
         help_text="Укажите время, когда необходимо выполнить привычку",
     )
-    habit_action = models.CharField(
+    action = models.CharField(
         max_length=300,
         blank=True,
         null=True,
@@ -60,7 +60,7 @@ class Habit(models.Model):
         help_text="Укажите чем пользователь должен себя вознаградить после выполнения",
     )
     is_public = models.BooleanField(
-        default=True,
+        default=False,
         verbose_name="Признак публичности",
         help_text="Укажите можно ли публиковать привычку в общий доступ, чтобы другие пользователи могли брать в пример чужие привычки.",
     )
