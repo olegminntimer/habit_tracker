@@ -64,3 +64,7 @@ class Habit(models.Model):
         verbose_name="Признак публичности",
         help_text="Укажите можно ли публиковать привычку в общий доступ, чтобы другие пользователи могли брать в пример чужие привычки.",
     )
+
+    class Meta:
+        verbose_name = "Привычка"
+        verbose_name_plural = "Привычки"
