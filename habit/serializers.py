@@ -16,3 +16,8 @@ class HabitSerializer(ModelSerializer):
             PleasantlyHabitNoRewardNoAssociatedHabit(),
             MaxPeriodicity(),
         ]
+
+class PublicHabitSerializer(ModelSerializer):
+    class Meta:
+        model = Habit
+        fields = ("action", "is_pleasantly", )
