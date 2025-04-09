@@ -8,19 +8,18 @@ from habit.serializers import HabitSerializer, PublicHabitSerializer
 
 class HabitCreateAPIView(generics.CreateAPIView):
     serializer_class = HabitSerializer
-    permission_classes = [AllowAny]
 
 
 class HabitListAPIView(generics.ListAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
     pagination_class = HabitPagination
-    permission_classes = [AllowAny]
 
 
 class PublicHabitListAPIView(generics.ListAPIView):
     serializer_class = PublicHabitSerializer
     pagination_class = HabitPagination
+    permission_classes = [AllowAny]
 
     def get_queryset(self):
         return Habit.objects.filter(is_public=True)
