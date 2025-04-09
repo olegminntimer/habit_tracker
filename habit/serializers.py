@@ -17,7 +17,12 @@ class HabitSerializer(ModelSerializer):
             MaxPeriodicity(),
         ]
 
+
 class PublicHabitSerializer(ModelSerializer):
+
     class Meta:
         model = Habit
-        fields = ("action", "is_pleasantly", )
+        fields = (
+            "action",
+            "is_pleasantly",
+        )
