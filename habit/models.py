@@ -59,8 +59,7 @@ class Habit(models.Model):
         help_text="Укажите чем пользователь должен себя вознаградить после выполнения",
     )
     time_to_complete = models.PositiveSmallIntegerField(
-        blank=True,
-        null=True,
+        default=60,
         verbose_name="Время на выполнение",
         help_text="Время, которое предположительно потратит пользователь на выполнение привычки.",
     )
