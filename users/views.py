@@ -6,8 +6,8 @@ from users.serializers import UserSerializer
 
 
 class UserCreateAPIView(generics.CreateAPIView):
-    serializer_class = UserSerializer
     queryset = User.objects.all()
+    serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
     def perform_create(self, serializer):
