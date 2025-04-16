@@ -1,0 +1,92 @@
+[
+{
+    "model": "habit.habit",
+    "pk": 1,
+    "fields": {
+        "user": 2,
+        "place": "Place1",
+        "time": "2025-01-01T08:45:45Z",
+        "action": "Action1",
+        "is_pleasantly": false,
+        "associated_habit": null,
+        "periodicity": 1,
+        "reward": "Reward1",
+        "is_public": true
+    }
+},
+{
+    "model": "habit.habit",
+    "pk": 3,
+    "fields": {
+        "user": 2,
+        "place": "Place2",
+        "time": "2025-02-02T09:03:14Z",
+        "action": "Action2",
+        "is_pleasantly": false,
+        "associated_habit": 6,
+        "periodicity": 1,
+        "reward": null,
+        "is_public": true
+    }
+},
+{
+    "model": "habit.habit",
+    "pk": 4,
+    "fields": {
+        "user": 3,
+        "place": "Place3",
+        "time": "2025-03-03T09:05:23Z",
+        "action": "Action3",
+        "is_pleasantly": false,
+        "associated_habit": null,
+        "periodicity": 1,
+        "reward": null,
+        "is_public": false
+    }
+},
+{
+    "model": "habit.habit",
+    "pk": 5,
+    "fields": {
+        "user": 3,
+        "place": "Place4",
+        "time": "2025-04-04T09:06:39Z",
+        "action": "Action4",
+        "is_pleasantly": false,
+        "associated_habit": 7,
+        "periodicity": 4,
+        "reward": null,
+        "is_public": true
+    }
+},
+{
+    "model": "habit.habit",
+    "pk": 6,
+    "fields": {
+        "user": null,
+        "place": "Place5",
+        "time": "2025-04-06T09:08:03Z",
+        "action": "Action5",
+        "is_pleasantly": true,
+        "associated_habit": null,
+        "periodicity": 0,
+        "reward": null,
+        "is_public": true
+    }
+},
+{
+    "model": "habit.habit",
+    "pk": 7,
+    "fields": {
+        "user": null,
+        "place": "Place6",
+        "time": "2025-04-05T09:08:45Z",
+        "action": "Action6",
+        "is_pleasantly": true,
+        "associated_habit": null,
+        "periodicity": 0,
+        "reward": null,
+        "is_public": false
+    }
+}
+]
