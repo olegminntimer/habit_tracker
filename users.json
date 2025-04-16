@@ -1,0 +1,74 @@
+[
+{
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$25mpFNYwo8gIaun3NIY3RK$w8mXRrMvUt+8fVMByJazyy43KkLnVjei9byNT8I6tJ0=",
+        "last_login": "2025-04-05T17:36:32.282Z",
+        "is_superuser": true,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2025-04-05T16:24:35.487Z",
+        "email": "admin@example.com",
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$fvqktz9SrO41S6Lh5tiuCI$vnVLb2h5tmGBLy4tbYJnjkiEL1rRaLIW356/+K2ZeWA=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-05T16:24:49.982Z",
+        "email": "user@sky.com",
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$btapNWeh9LFmchGf3vT7Io$3r9CD1ZiikatCufQbr/7e/b4dxDlrG2pHXwZV85uYmk=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-05T16:24:50.155Z",
+        "email": "user2@sky.pro",
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "users.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$1000000$TaHbfKq5l6xrTBWtAmcEg4$RTC3r3jCJcsmC/hUGmf42JUAZYsNHe/2dM/GJsGrGfo=",
+        "last_login": null,
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2025-04-06T05:57:54.231Z",
+        "email": "user3@sky.com",
+        "avatar": "",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
