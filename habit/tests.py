@@ -62,7 +62,7 @@ class HabitTestCase(APITestCase):
                 "previous": None,
                 "results": [
                     {
-                        "id": 3,
+                        "id": 1,
                         "place": "place2",
                         "time": "2025-04-09T14:00:00+05:00",
                         "action": "action2",
@@ -71,7 +71,7 @@ class HabitTestCase(APITestCase):
                         "reward": None,
                         "time_to_complete": 60,
                         "is_public": False,
-                        "user": 5,
+                        "user": 1,
                         "associated_habit": None,
                     }
                 ],
@@ -126,11 +126,11 @@ class HabitTestCase(APITestCase):
             is_public=True,
             periodicity=1,
         )
-        response = self.client.get("/habit/6/")
+        response = self.client.get("/habit/1/")
         self.assertEqual(
             response.json(),
             {
-                "id": 6,
+                "id": 1,
                 "place": "place5",
                 "time": "2025-04-09T14:00:00+05:00",
                 "action": "action5",
@@ -139,7 +139,7 @@ class HabitTestCase(APITestCase):
                 "reward": None,
                 "time_to_complete": 60,
                 "is_public": True,
-                "user": 9,
+                "user": 1,
                 "associated_habit": None,
             },
         )
@@ -165,11 +165,11 @@ class HabitTestCase(APITestCase):
             "time_to_complete": 100,
             "is_public": True,
         }
-        response = self.client.patch("/habit/update/7/", data=data)
+        response = self.client.patch("/habit/update/1/", data=data)
         self.assertEqual(
             response.json(),
             {
-                "id": 7,
+                "id": 1,
                 "place": "place7",
                 "time": "2025-04-09T14:00:00+05:00",
                 "action": "action7",
@@ -178,7 +178,7 @@ class HabitTestCase(APITestCase):
                 "reward": None,
                 "time_to_complete": 100,
                 "is_public": True,
-                "user": 12,
+                "user": 2,
                 "associated_habit": None,
             },
         )
