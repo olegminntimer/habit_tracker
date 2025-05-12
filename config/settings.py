@@ -74,7 +74,7 @@ if "test" in sys.argv or os.getenv("GITHUB_ACTIONS") == "true":
         }
     }
 else:
-    if os.getenv("SERVER_TYPE") == "local":
+    if os.getenv("SERVER_TYPE") != "web":
         host_db = "127.0.0.1"
     else:
         host_db = "db"
@@ -121,7 +121,7 @@ else:
     STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-MEDIA_URL = "media/"
+MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -155,7 +155,7 @@ CELERY_TIMEZONE = TIME_ZONE
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 
-REDIS_HOST = "redis" if os.getenv("DOCKER_ENV") == "True" else "127.0.0.1"
+REDIS_HOST = "redis" if os.getenv("SERVER_TYPE") == "web" else "127.0.0.1"
 # set the celery broker url
 CELERY_BROKER_URL = f"redis://{REDIS_HOST}:6379/0"
 # set the celery result backend
