@@ -195,10 +195,6 @@ class HabitTestCase(APITestCase):
             is_public=True,
             periodicity=6,
         )
-        response = self.client.delete("/habit/delete/6/")
-
-        # print(response.json())
-        # print(Habit.objects.all())
         self.assertEqual(
             Habit.objects.all().count(),
             1
