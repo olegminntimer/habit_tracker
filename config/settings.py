@@ -171,3 +171,5 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": timedelta(hours=1),  # Расписание выполнения задачи
     },
 }
+
+CSRF_TRUSTED_ORIGINS = ["https://localhost", "http://localhost", "http://130.193.35.7", "https://130.193.35.7"]
