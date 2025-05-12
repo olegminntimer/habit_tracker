@@ -105,8 +105,6 @@ jobs:
 
       - name: Clean up disk space
         run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /usr/local/lib/android
           sudo apt-get clean
           docker system prune -a -f
 
