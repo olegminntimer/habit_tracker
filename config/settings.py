@@ -9,7 +9,7 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "secret-key-test"
+SECRET_KEY = "django-insecure-bq$iw9)vx@!wq%q6g#)9)3dogyy*g5v^87_ly6!50=ga7x1l3!"
 if "test" in sys.argv:
     SECRET_KEY = "secret-key-test"
 else:
