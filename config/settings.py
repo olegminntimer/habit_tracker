@@ -9,10 +9,11 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-if "test" in sys.argv:
-    SECRET_KEY = "secret-key-test"
-else:
-    SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
+# if "test" in sys.argv:
+#     SECRET_KEY = "secret-key-test"
+# else:
+#     SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = True if os.getenv("DEBUG") == "True" else False
 
