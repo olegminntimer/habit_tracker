@@ -1,4 +1,5 @@
 import os
+import sys
 from datetime import timedelta
 from pathlib import Path
 
@@ -9,10 +10,14 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv("SECRET_KEY")
+# if "test" in sys.argv:
+#     SECRET_KEY = "secret-key-test"
+# else:
+#     SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = True if os.getenv("DEBUG") == "True" else False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -62,16 +67,29 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": os.getenv("NAME"),
-        "USER": os.getenv("DB_USER"),
-        "PASSWORD": os.getenv("DB_PASSWORD"),
-        "HOST": os.getenv("HOST"),
-        "PORT": os.getenv("PORT"),
+if "test" in sys.argv or os.getenv("GITHUB_ACTIONS") == "true":
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "test_db.sqlite3",
+        }
     }
-}
+else:
+    if os.getenv("SERVER_TYPE") != "web":
+        host_db = "127.0.0.1"
+    else:
+        host_db = "db"
+
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv("POSTGRES_DB"),
+            "USER": os.getenv("POSTGRES_USER"),
+            "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+            "HOST": os.getenv(host_db),
+            "PORT": "5432",
+        }
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -97,9 +115,14 @@ USE_I18N = True
 USE_TZ = True
 
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+if "test" in sys.argv:
+    STATICFILES_DIRS = []  # Отключаем проверку статики для тестов
+else:
+    STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
-MEDIA_URL = "media/"
+MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
@@ -133,11 +156,11 @@ CELERY_TIMEZONE = TIME_ZONE
 CELERY_TASK_TRACK_STARTED = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 
+REDIS_HOST = "redis" if os.getenv("SERVER_TYPE") == "web" else "127.0.0.1"
 # set the celery broker url
-CELERY_BROKER_URL = "redis://localhost:6379/0"
-
+CELERY_BROKER_URL = f"redis://{REDIS_HOST}:6379/0"
 # set the celery result backend
-CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:6379/0"
 
 TELEGRAM_URL = "https://api.telegram.org/bot"
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
@@ -148,3 +171,5 @@ CELERY_BEAT_SCHEDULE = {
         "schedule": timedelta(hours=1),  # Расписание выполнения задачи
     },
 }
+
+CSRF_TRUSTED_ORIGINS = ["https://localhost", "http://localhost", "http://130.193.35.7", "https://130.193.35.7"]
